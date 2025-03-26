@@ -4,10 +4,13 @@ const path = require("path");
 const rootRouter = require("./routes/root");
 const userRouter = require("./routes/user");
 const productRouter = require("./routes/product");
+const connectMongo = require("./config/connectDB");
+
+
+connectMongo().catch((err) => console.log(err));
+
 
 const app = express();
-
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 

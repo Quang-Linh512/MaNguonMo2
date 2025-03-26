@@ -10,14 +10,7 @@
     <h1 style="color: red;">Danh sách sản phẩm</h1>
 
     <label for="category">Lọc theo danh mục:</label>
-    <select id="category" onchange="filterCategory()">
-        <option value="0" <%= selectedCategory === 0 ? 'selected' : '' %>>Tất cả danh mục</option>
-        <% categories.forEach(category => { %>
-            <option value="<%= category.id %>" <%= selectedCategory === category.id ? 'selected' : '' %>>
-                <%= category.name %>
-            </option>
-        <% }); %>
-    </select>
+
 
     <table border="1">
         <thead>
@@ -36,8 +29,7 @@
                     <td><%= product.id %></td>
                     <td><%= product.name %></td>
                     <td><%= product.description %></td>
-                    <td><%= categories.find(c => c.id === product.category_id).name %></td>
-                    <td><%= product.price.toLocaleString() %> VNĐ</td>
+                    <td><%= product.price %> VNĐ</td>
                     <td><%= product.stock %></td>
                 </tr>
             <% }); %>
