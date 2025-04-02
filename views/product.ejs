@@ -34,6 +34,7 @@
                     <td><%= item.description %></td>
                     <td><%= item.price %></td>
                     <td><%= item.stock %></td>
+                    <td> <a href="/products/delete/<%= item.id %>" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
                 <% }); %>
 

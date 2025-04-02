@@ -32,6 +32,12 @@ class ProductController {
     } 
     res.render("product", { products });
   }
+static async delete(req, res) {
+  console.log(req.params.id);
+  let id = req.params.id;
+  let product = await Product.deleteOne({_id: id});
+  res.redirect("/products");
+}
 }
 
 module.exports = ProductController;
