@@ -20,7 +20,14 @@ const Product = require("../model/product");
 
 class ProductController {
   static async index(req, res) {
-    const products = await Product.find();
+    console.log(req.query.q);
+    let q = req.query.q;
+    let products;
+    if (q) {
+      products = await Product.find({ name: {$regex: q, $options: "i"} });
+    } else {
+      products = await Product.find();
+    }
     res.render("product", { products });
   }
 }
