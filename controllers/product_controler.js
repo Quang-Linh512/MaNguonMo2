@@ -20,14 +20,16 @@ const Product = require("../model/product");
 
 class ProductController {
   static async index(req, res) {
-    console.log(req.query.q);
     let q = req.query.q;
+    let page = parseInt(req.query.page);
+    let skip = (page - 1) * 5;
+    console.log(page);
     let products;
     if (q) {
       products = await Product.find({ name: {$regex: q, $options: "i"} });
     } else {
-      products = await Product.find();
-    }
+      products = await Product.find().skip(skip).limit(5);
+    } 
     res.render("product", { products });
   }
 }
