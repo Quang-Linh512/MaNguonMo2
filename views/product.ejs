@@ -10,6 +10,7 @@
     </head>
     <body class="container">
         <h1>Product Management</h1>
+        <a class="btn btn-info" href="/products/new">new</a>
         <form action method="get">
             <div class="form-group d-flex col-5">
                 <input name = "q" type="text" class="form-control">
@@ -35,6 +36,7 @@
                     <td><%= item.price %></td>
                     <td><%= item.stock %></td>
                     <td> <a href="/products/delete/<%= item.id %>" class="btn btn-outline-danger">Delete</a></td>
+                    <td> <a href="/products/edit/" class="btn btn-outline-danger">Edit</a></td>
                 </tr>
                 <% }); %>
 

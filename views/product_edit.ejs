@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa sản phẩm</title>
+    <link rel="stylesheet" href="/bootstrap-5.3.3/css/bootstrap.css">
+    <script src="/bootstrap-5.3.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            background-color: #17a2b8;
+            color: white;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #138496;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h2 class="text-center mb-4">✏️ Chỉnh sửa sản phẩm</h2>
+                <form method="POST" action="/products/edit/<%= product._id %>">
+                    <div class="mb-3">
+                        <label class="form-label">📛 Tên sản phẩm</label>
+                        <input name="name" type="text" class="form-control" value="<%= product.name %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">📝 Mô tả</label>
+                        <textarea name="description" class="form-control" required><%= product.description %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">💲 Giá</label>
+                        <input name="price" type="number" class="form-control" value="<%= product.price %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">📦 Số lượng</label>
+                        <input name="stock" type="number" class="form-control" value="<%= product.stock %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-custom w-100">🚀 Cập nhật sản phẩm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
